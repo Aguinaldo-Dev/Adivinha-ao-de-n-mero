@@ -1,5 +1,7 @@
 from random import randint
 from time import sleep
+
+tentativas = 1
 c = 0
 print('Seja Bem-Vindo, ao Jogo da Adivinhação. Tente Adivinhar o número que a sua máquina pensou entre [0, 10]')
 num_jog = int(input("Em que número estou pensando?: "))
@@ -18,7 +20,8 @@ elif num_maq != num_jog:
             print("Tente um número menor...")
             sleep(1)
             num_jog = int(input("Em que número estou pensando?: "))
-print("Parabéns, Você acertou eu pensei no número {}!!".format(num_maq))
+        tentativas += 1
+print("Parabéns, Você venceu com {} tentativas.\nPensei no número {}.".format(tentativas, num_maq))
 novamente = int(input("Deseja jogar novamente Sim[1]/Não[2]: "))
 if novamente == 1:
     while c < 1:
@@ -40,7 +43,7 @@ if novamente == 1:
                 elif num_maq < num_jog:
                     print("Tente um número menor.")
                     num_jog = int(input("Em que número estou pensando?: "))
-        print("Parabéns, você venceu.")
+        print("Parabéns, você venceu com {} tentativas. Pensei no número {}".format(tentativas, num_maq))
         c = int(input("Deseja jogar novamente?[Sim[1]/Não[2]"))
         if c == 1:
             c += 0
@@ -53,4 +56,4 @@ elif novamente == 2:
     print("Finalizando programa....")
     sleep(2)
     print("Programa Finalizado")
-        
+
